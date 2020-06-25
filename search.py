@@ -20,6 +20,7 @@ import urllib.parse
 from retry import retry
 import argparse
 import logging
+import requests
 from urllib.request import urlretrieve
 
 logging.basicConfig(stream=sys.stderr, level=logging.INFO)
@@ -95,7 +96,9 @@ def get_images(wd, query, save_dir, save_name, start=0, n=1):
             for src in sources1:
                 if not src in sources:
                     sources.append(src)
-                    urlretrieve(src, "{}/{}".format(save_dir,save_name))
+                    r = requests.get(src)
+                    with open("{}/{}".format(save_dir,save_name), 'wb') as outfile:
+                        outfile.write(r.content)
         except KeyError as e:
             pass
         

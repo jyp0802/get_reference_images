@@ -16,6 +16,12 @@ ref_image_name = "ref" # don't add .png or .jpg etc.
 
 for img_dir in os.listdir(dataset_dir):
 	print("Getting reference image for img {}".format(img_dir))
+
+	#### Check if ref image already exists
+	if os.path.isfile(os.path.join(dataset_dir,img_dir,ref_image_name)):
+		print("Reference image already exist")
+		continue
+
 	#### Upload img to imgbb.com
 	with open(os.path.join(dataset_dir,img_dir,image_to_search), "rb") as file:
 		api_url = "https://api.imgbb.com/1/upload"
