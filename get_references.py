@@ -10,7 +10,7 @@ dataset_dir = 'new_data'
 
 imgbb_key = "81da4f6a5de7e5db6b78c835a9f32167"
 
-image_to_search = "recoverd_masked.png"
+image_to_search = "recoverd.png"
 
 ref_image_name = "ref" # don't add .png or .jpg etc.
 
