@@ -57,14 +57,14 @@ def show_image(imgs, title=None, size=1):
 	if n > 1:
 		for i in range(n):
 			img = imgs[i] / 2 + 0.5  
-			npimg = np.transpose(img.numpy(), (1, 2, 0))
+			npimg = np.transpose(img.detach().numpy(), (1, 2, 0))
 			ax[i].imshow(npimg)
 			ax[i].axis('off')
 			if title != None:
 				ax[i].set_title(title[i])
 	else:
 		img = imgs[0] / 2 + 0.5  
-		npimg = np.transpose(img.numpy(), (1, 2, 0))
+		npimg = np.transpose(img.detach().numpy(), (1, 2, 0))
 		ax.imshow(npimg)
 		ax.axis('off')
 		if title != None:
